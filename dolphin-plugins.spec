@@ -9,8 +9,8 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	kdelibs4-devel
-BuildRequires:	kdebase4-devel
+BuildRequires:	kdelibs-devel
+BuildRequires:	kde-baseapps-devel
 Conflicts:	kdesdk4-core < 1:4.11.0
 
 %description
