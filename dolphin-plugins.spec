@@ -12,6 +12,8 @@ Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%
 BuildRequires:	kdelibs-devel
 BuildRequires:	kde-baseapps-devel
 BuildRequires:	cmake(DolphinVcs)
+BuildRequires:	cmake(KF5KDELibs4Support)
+
 Conflicts:	kdesdk4-core < 1:4.11.0
 
 %description
