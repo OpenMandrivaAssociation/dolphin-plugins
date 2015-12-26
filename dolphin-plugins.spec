@@ -9,41 +9,36 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	kdelibs-devel
-BuildRequires:	kde-baseapps-devel
-BuildRequires:	cmake(DolphinVcs)
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5XmlGui)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5KDELibs4Support)
-
+BuildRequires:	cmake(KF5TextEditor)
+BuildRequires:	cmake(KF5WidgetsAddons)
+BuildRequires:	cmake(DolphinVcs)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Network)
 Conflicts:	kdesdk4-core < 1:4.11.0
+Requires:	dolphin >= 1:15.12.0
 
 %description
-Plugins for Dolphin to view various VCS files:
- - bazaar
- - dropbox
- - git
- - mercurial (hg)
- - subversion (svn)
+This package contains various plugins for dolphin.
 
 %files
-%{_qt5_plugindir}/fileviewbazaarplugin.so
-%{_qt5_plugindir}/fileviewdropboxplugin.so
-%{_qt5_plugindir}/fileviewgitplugin.so
-%{_qt5_plugindir}/fileviewsvnplugin.so
-%{_kde5_datadir}/config.kcfg/fileviewsvnpluginsettings.kcfg
-%{_kde5_datadir}/config.kcfg/fileviewgitpluginsettings.kcfg
-%{_kde5_services}/fileviewbazaarplugin.desktop
-%{_kde5_services}/fileviewdropboxplugin.desktop
-%{_kde5_services}/fileviewgitplugin.desktop
-%{_kde5_services}/fileviewsvnplugin.desktop
+%{_qt5_plugindir}/*.so
+%{_kde5_datadir}/config.kcfg/*.kcfg
+%{_kde5_services}/*.desktop
 
 #----------------------------------------------------------------------------
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake_kde5
-%ninja
+%ninja -C build
 
 %install
 %ninja_install -C build
