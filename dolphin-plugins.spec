@@ -2,7 +2,7 @@
 
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		dolphin-plugins
-Version:	17.03.80
+Version:	17.04.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -26,7 +26,7 @@ Requires:	dolphin >= 1:15.12.0
 %description
 This package contains various plugins for dolphin.
 
-%files
+%files -f all.lang
 %{_qt5_plugindir}/*.so
 %{_kde5_datadir}/config.kcfg/*.kcfg
 %{_kde5_services}/*.desktop
@@ -42,3 +42,8 @@ This package contains various plugins for dolphin.
 
 %install
 %ninja_install -C build
+%find_lang fileviewbazaarplugin
+%find_lang fileviewgitplugin
+%find_lang fileviewhgplugin
+%find_lang fileviewsvnplugin
+cat *.lang >all.lang

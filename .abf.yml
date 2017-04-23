@@ -1,5 +1,2 @@
-removed_sources:
-  dolphin-plugins-15.04.3.tar.xz: 4c122513d26e0195b9197dd5a9a97a44863d4047
-  dolphin-plugins-15.08.0.tar.xz: a7c35956a17b937ea9fbed6c53af547148355dcf
 sources:
-  dolphin-plugins-17.03.80.tar.xz: a681c0b7e39e5e6066add076adc716e3f977e80d
+  dolphin-plugins-17.04.0.tar.xz: ea25ed9b40c151a1ea36f29eb1e21811659cd65a
