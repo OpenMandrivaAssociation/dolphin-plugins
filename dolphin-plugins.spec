@@ -2,7 +2,7 @@
 
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		dolphin-plugins
-Version:	19.08.3
+Version:	19.11.80
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -30,6 +30,7 @@ This package contains various plugins for dolphin.
 %{_qt5_plugindir}/*.so
 %{_kde5_datadir}/config.kcfg/*.kcfg
 %{_kde5_services}/*.desktop
+%{_datadir}/metainfo/org.kde.dolphin-plugins.metainfo.xml
 
 #----------------------------------------------------------------------------
 
