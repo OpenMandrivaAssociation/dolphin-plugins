@@ -2,7 +2,7 @@
 
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		dolphin-plugins
-Version:	21.04.2
+Version:	21.07.80
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -27,10 +27,9 @@ Requires:	dolphin >= 1:15.12.0
 This package contains various plugins for dolphin.
 
 %files -f all.lang
-%{_qt5_plugindir}/*.so
+%{_qt5_plugindir}/dolphin/vcs/*.so
 %{_qt5_plugindir}/kf5/kfileitemaction/mountisoaction.so
 %{_kde5_datadir}/config.kcfg/*.kcfg
-%{_kde5_services}/*.desktop
 %{_datadir}/metainfo/org.kde.dolphin-plugins.metainfo.xml
 
 #----------------------------------------------------------------------------
