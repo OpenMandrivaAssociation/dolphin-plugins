@@ -2,7 +2,7 @@
 
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		dolphin-plugins
-Version:	21.08.3
+Version:	21.12.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
