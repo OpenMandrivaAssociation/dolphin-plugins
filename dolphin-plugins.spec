@@ -16,11 +16,10 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5KDELibs4Support)
 BuildRequires:	cmake(KF5TextEditor)
 BuildRequires:	cmake(KF5WidgetsAddons)
-BuildRequires:	cmake(DolphinVcs)
+BuildRequires:	cmake(DolphinVcs) < 6.0.0
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Network)
-Conflicts:	kdesdk4-core < 1:4.11.0
 Requires:	dolphin >= 1:15.12.0
 
 %description
@@ -35,8 +34,9 @@ This package contains various plugins for dolphin.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%cmake_kde5
+%autosetup -p1
+%cmake_kde5 \
+	-DBUILD_WITH_QT6:BOOL=OFF
 
 %build
 %ninja -C build
