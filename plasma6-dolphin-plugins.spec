@@ -14,6 +14,7 @@ BuildRequires:	cmake(KF6XmlGui)
 BuildRequires:	cmake(KF6I18n)
 BuildRequires:	cmake(KF6KIO)
 BuildRequires:	cmake(KF6TextEditor)
+BuildRequires:	cmake(KF6TextWidgets)
 BuildRequires:	cmake(KF6WidgetsAddons)
 BuildRequires:	cmake(DolphinVcs) >= 6.0.0
 BuildRequires:	pkgconfig(Qt6Core)
