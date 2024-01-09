@@ -17,6 +17,7 @@ BuildRequires:	cmake(KF6TextEditor)
 BuildRequires:	cmake(KF6WidgetsAddons)
 BuildRequires:	cmake(DolphinVcs) >= 6.0.0
 BuildRequires:	pkgconfig(Qt6Core)
+BuildRequires:	pkgconfig(Qt6Core5Compat)
 BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(Qt6Network)
 Requires:	plasma6-dolphin
