@@ -13,32 +13,32 @@ BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF6XmlGui)
 BuildRequires:	cmake(KF6I18n)
 BuildRequires:	cmake(KF6KIO)
-BuildRequires:	cmake(KF6KDELibs4Support)
 BuildRequires:	cmake(KF6TextEditor)
 BuildRequires:	cmake(KF6WidgetsAddons)
-BuildRequires:	cmake(DolphinVcs) < 6.0.0
+BuildRequires:	cmake(DolphinVcs) >= 6.0.0
 BuildRequires:	pkgconfig(Qt6Core)
 BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(Qt6Network)
-Requires:	dolphin >= 1:16.12.0
+Requires:	plasma6-dolphin
 
 %description
 This package contains various plugins for dolphin.
 
 %files -f all.lang
-%{_qt6_plugindir}/dolphin/vcs/*.so
-%{_qt6_plugindir}/kf6/kfileitemaction/mountisoaction.so
-%{_kde6_datadir}/config.kcfg/*.kcfg
+%{_qtdir}/plugins/dolphin/vcs/*.so
+%{_qtdir}/plugins/kf6/kfileitemaction/mountisoaction.so
+%{_qtdir}/plugins/kf6/kfileitemaction/makefileactions.so
+%{_datadir}/config.kcfg/*.kcfg
 %{_datadir}/metainfo/org.kde.dolphin-plugins.metainfo.xml
 
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n dolphin-plugins-%{version}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja \
-	-DBUILD_WITH_QT6:BOOL=OFF
+	-DBUILD_WITH_QT6:BOOL=ON
 
 %build
 %ninja -C build
