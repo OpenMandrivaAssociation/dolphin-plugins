@@ -3,7 +3,7 @@
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		dolphin-plugins
 Version:	23.08.4
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
