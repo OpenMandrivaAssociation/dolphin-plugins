@@ -1,13 +1,20 @@
+%define git 20240217
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		plasma6-dolphin-plugins
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/sdk/dolphin-plugins/-/archive/%{gitbranch}/dolphin-plugins-%{gitbranchd}.tar.bz2#/dolphin-plugins-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/dolphin-plugins-%{version}.tar.xz
+%endif
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF6XmlGui)
 BuildRequires:	cmake(KF6I18n)
@@ -35,7 +42,7 @@ This package contains various plugins for dolphin.
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n dolphin-plugins-%{version}
+%autosetup -p1 -n dolphin-plugins-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja \
