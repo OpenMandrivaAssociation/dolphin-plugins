@@ -5,7 +5,7 @@
 
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		plasma6-dolphin-plugins
-Version:	24.05.2
+Version:	24.08.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -36,6 +36,7 @@ This package contains various plugins for dolphin.
 %{_qtdir}/plugins/dolphin/vcs/*.so
 %{_qtdir}/plugins/kf6/kfileitemaction/mountisoaction.so
 %{_qtdir}/plugins/kf6/kfileitemaction/makefileactions.so
+%{_datadir}/qlogging-categories6/dolphingit.categories
 %{_datadir}/config.kcfg/*.kcfg
 %{_datadir}/metainfo/org.kde.dolphin-plugins.metainfo.xml
 
