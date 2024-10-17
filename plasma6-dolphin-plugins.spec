@@ -9,7 +9,7 @@ Version:	24.08.2
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Url:		http://www.kde.org
+Url:		https://www.kde.org
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/sdk/dolphin-plugins/-/archive/%{gitbranch}/dolphin-plugins-%{gitbranchd}.tar.bz2#/dolphin-plugins-%{git}.tar.bz2
 %else
