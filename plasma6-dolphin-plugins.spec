@@ -5,8 +5,8 @@
 
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		plasma6-dolphin-plugins
-Version:	24.12.3
-Release:	%{?git:0.%{git}.}3
+Version:	25.04.0
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org
