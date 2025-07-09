@@ -4,7 +4,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Plugins for Dolphin to view various VCS files
-Name:		plasma6-dolphin-plugins
+Name:		dolphin-plugins
 Version:	25.04.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
