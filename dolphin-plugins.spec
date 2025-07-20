@@ -5,7 +5,7 @@
 
 Summary:	Plugins for Dolphin to view various VCS files
 Name:		dolphin-plugins
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -28,31 +28,20 @@ BuildRequires:	pkgconfig(Qt6Core5Compat)
 BuildRequires:	cmake(Qt6Concurrent)
 BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(Qt6Network)
-Requires:	plasma6-dolphin
+Requires:	dolphin >= 6.0
+
+%rename plasma6-dolphin-plugins
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 This package contains various plugins for dolphin.
 
-%files -f all.lang
+%files -f %{name}.lang
 %{_qtdir}/plugins/dolphin/vcs/*.so
 %{_qtdir}/plugins/kf6/kfileitemaction/mountisoaction.so
 %{_qtdir}/plugins/kf6/kfileitemaction/makefileactions.so
 %{_datadir}/qlogging-categories6/dolphingit.categories
 %{_datadir}/config.kcfg/*.kcfg
 %{_datadir}/metainfo/org.kde.dolphin-plugins.metainfo.xml
-
-#----------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n dolphin-plugins-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja \
-	-DBUILD_WITH_QT6:BOOL=ON
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang all --all-name --with-html
